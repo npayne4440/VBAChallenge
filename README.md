@@ -32,9 +32,9 @@ Dim PercentChange As Double
 Dim Volume As Double
 
 
-Dim open As Double
+Dim StocksOpen As Double
 
-Dim close As Double
+Dim StocksClose As Double
 
 
 Dim lastrow As Double
@@ -63,10 +63,10 @@ ws.Range("L" & table).Value = Volume
 Volume = 0
 
    
-close = ws.Cells(i, 6)
+StocksClose = ws.Cells(i, 6)
           
 
-If open = 0 Then
+If StocksOpen = 0 Then
 
 YearlyChange = 0
 
@@ -74,9 +74,9 @@ PercentChange = 0
 
 Else:
 
-YearlyChange = close - open
+YearlyChange = StocksClose - StocksOpen
 
-PercentChange = (close - open) / open
+PercentChange = (StocksClose - StocksOpen) / StocksOpen
 
 End If
   
@@ -94,7 +94,7 @@ table = table + 1
 
 ElseIf ws.Cells(i - 1, 1).Value <> ws.Cells(i, 1) Then
 
-open = ws.Cells(i, 3)
+StocksOpen = ws.Cells(i, 3)
 
 
 Else: Volume = Volume + ws.Cells(i, 7).Value
